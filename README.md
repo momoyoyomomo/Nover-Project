@@ -17,25 +17,25 @@ y = hasilgabung.iloc[:,83: 84]
 
  from sklearn.model_selection import train_test_split = pemanggilan fungsi sklearn untuk mentraining dataset
 
- x_train,x_test,y_train,y_test = train_test_split(x,y, test_size = 0.2, random_state = 42) = adalah cara untuk membagi dataset menjadi data latih dan data uji menggunakan fungsi train_test_split dari pustaka sklearn.model_selection
+ x_train,x_test,y_train,y_test = train_test_split(x,y, test_size = 0.2, random_state = 42) = merupakan cara untuk membagi dataset menjadi data latih dan data uji menggunakan fungsi train_test_split dari pustaka sklearn.model_selection
 
  from sklearn import tree
 from sklearn.tree import DecisionTreeClassifier = berfungsi untuk mengimpor modul dan kelas dari pustaka Scikit-learn yang digunakan untuk membuat model Decision Tree (Pohon Keputusan)
 
 alya = DecisionTreeClassifier(criterion='entropy', splitter = 'random')
-alya.fit(x_train,y_train) = adalah cara untuk membuat dan melatih model Decision Tree Classifier dengan pengaturan khusus.
+alya.fit(x_train,y_train) = untuk membuat dan melatih model Decision Tree Classifier dengan pengaturan khusus.
 
-y_pred = alya.predict(x_test) = adalah proses untuk melakukan prediksi menggunakan model pohon keputusan (alya) yang telah dilatih sebelumnya.
+y_pred = alya.predict(x_test) = proses melakukan prediksi menggunakan model pohon keputusan (alya) yang telah dilatih sebelumnya
 
 from sklearn.metrics import accuracy_score
-accuracy = accuracy_score(y_test,y_pred) = digunakan untuk mengukur akurasi dari model klasifikasi, yaitu seberapa banyak prediksi model yang benar dibandingkan dengan label yang sebenarnya.
+accuracy = accuracy_score(y_test,y_pred) = digunakan untuk mengukur akurasi dari model klasifikasi, seberapa banyak prediksi model yang benar dibandingkan dengan label yang sebenarnya.
 
 import matplotlib.pyplot as plt
-import numpy as np = adalah pengimporan dua pustaka penting dalam Python yang biasa digunakan untuk visualisasi data dan komputasi numerik.
+import numpy as np = fungsi pengimporan dua pustaka penting dalam Python yang biasa digunakan untuk visualisasi data dan komputasi numerik.
 
 fig = plt.figure(figsize = (10, 7))
 tree.plot_tree(alya, feature_names = x.columns.values, class_names = np.array([ 'Benign Traffic','DDos ICMP Flood','DDoS UDP Flood']), filled = True)
-plt.show() = digunakan untuk visualisasi pohon keputusan yang telah dilatih, yaitu model alya. Berikut penjelasan lebih detail:
+plt.show() = digunakan untuk visualisasi pohon keputusan yang telah dilatih, yaitu model alya.
 
 import seaborn as lol
 from sklearn import metrics
@@ -47,4 +47,4 @@ plt.figure(figsize=(10, 10))
 lol.heatmap(conf_matrix, annot=True, xticklabels=label, yticklabels=label)
 plt.xlabel('Prediksi')
 plt.ylabel('Fakta')
-plt.show() = digunakan untuk visualisasi confusion matrix yang menunjukkan seberapa baik model dalam memprediksi kelas dengan menggunakan heatmap.
+plt.show() = untuk menampilkan visualisasi confusion matrix yang menunjukkan seberapa baik model dalam memprediksi kelas dengan menggunakan heatmap.
